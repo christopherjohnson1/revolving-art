@@ -8,9 +8,11 @@ export const Register = (props) => {
     const password = useRef()
     const verifyPassword = useRef()
     const passwordDialog = useRef()
+    const artistDescription = useRef()
+    const profilePhoto = useRef()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:8088/customers?email=${email.current.value}`)
+        return fetch(`http://localhost:8088/users?email=${email.current.value}`)
             .then(_ => _.json())
             .then(user => !!user.length)
     }
@@ -21,7 +23,7 @@ export const Register = (props) => {
         if (password.current.value === verifyPassword.current.value) {
             existingUserCheck()
                 .then(() => {
-                    fetch("http://localhost:8088/customers", {
+                    fetch("http://localhost:8088/users", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -29,13 +31,15 @@ export const Register = (props) => {
                         body: JSON.stringify({
                             email: email.current.value,
                             password: password.current.value,
+                            artistDescription: artistDescription.current.value,
+                            profilePhoto: profilePhoto.current.value,
                             name: `${firstName.current.value} ${lastName.current.value}`
                         })
                     })
                         .then(_ => _.json())
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
-                                localStorage.setItem("kennel_customer", createdUser.id)
+                                localStorage.setItem("revolving_art_customer", createdUser.id)
                                 props.history.push("/")
                             }
                         })
@@ -54,7 +58,7 @@ export const Register = (props) => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for NSS Kennels</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Please Register for Revolving Art</h1>
                 <fieldset>
                     <label htmlFor="firstName"> First Name </label>
                     <input ref={firstName} type="text"
@@ -69,6 +73,22 @@ export const Register = (props) => {
                         name="lastName"
                         className="form-control"
                         placeholder="Last name"
+                        required />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="artistDescription"> Enter Brief Artist Description </label>
+                    <input ref={artistDescription} type="text"
+                        name="artistDescription"
+                        className="form-control"
+                        placeholder="Artist Description"
+                        required />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="profilePhoto"> Enter the URL for you profile photo </label>
+                    <input ref={profilePhoto} type="text"
+                        name="profilePhoto"
+                        className="form-control"
+                        placeholder="Image URL"
                         required />
                 </fieldset>
                 <fieldset>

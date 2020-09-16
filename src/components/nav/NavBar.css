@@ -1,0 +1,11 @@
+.navbar__actual {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    width: 512px;
+}
+
+.navbar__item {
+    flex-basis: 20%;
+    list-style-type: none;
+}

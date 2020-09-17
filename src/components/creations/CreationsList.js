@@ -5,7 +5,7 @@ import { Creation } from "./Creation"
 import Button from "react-bootstrap/Button"
 import "./Creations.css"
 
-export const CreationsList = () => {
+export const CreationsList = (props) => {
     const { getCreations, creations } = useContext(CreationsContext)
     const { getLocations, locations } = useContext(LocationContext)
 
@@ -16,10 +16,11 @@ export const CreationsList = () => {
     }, [])
 
     return (
+        <>
+        <Button onClick={() => props.history.push("/creations/add")} variant="success">Add a new creation</Button>
         <main className="creationContainer">
             <div className="creationsHeading">
                 <h1>My Collection</h1>
-                <div><Button variant="success" size="lg">Add a new creation</Button></div>
             </div>
             <div className="creations">
                 {
@@ -31,5 +32,6 @@ export const CreationsList = () => {
                 }
             </div>
         </main>
+        </>
     )
 }

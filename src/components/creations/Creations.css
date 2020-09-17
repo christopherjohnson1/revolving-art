@@ -1,0 +1,17 @@
+.creations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.creation {
+    flex-basis: 25%;
+    margin: 1em;
+    padding: 1em;
+}
+
+.creationsHeading {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+}

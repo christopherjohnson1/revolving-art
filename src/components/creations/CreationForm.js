@@ -17,7 +17,8 @@ export const CreationForm = (props) => {
             title: title.current.value,
             size: size.current.value,
             medium: medium.current.value,
-            imageURL: image
+            imageURL: image,
+            locationId: 1
         }
         addCreation(newCreation).then(() => {
             props.history.push("/creations")
@@ -79,15 +80,15 @@ export const CreationForm = (props) => {
                     <input type="text" id="medium" ref={medium} required autoFocus className="form-control" placeholder="Medium used for creation" />
                 </div>
             </fieldset>
-            <Button onClick={() => props.history.push("/creations")} variant="danger">Cancel</Button>
-            <button type="submit"
+            <Button onClick={() => props.history.push("/creations")} className="btn btn-primary ml-3" variant="danger">Cancel</Button>
+            <Button type="submit" variant="success"
                 onClick={evt => {
                     evt.preventDefault()
                     addToCreations()
                 }}
-                className="btn btn-primary">
+                className="btn btn-primary ml-3">
                 Submit Creation
-            </button>
+            </Button>
         </form>
     )
 }

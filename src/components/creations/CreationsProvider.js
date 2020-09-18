@@ -22,9 +22,16 @@ export const CreationsProvider = (props) => {
             .then(getCreations)
     } 
 
+    const removeCreation = (creationId) => {
+        return fetch(`http://localhost:8088/creations/${creationId}`, {
+            method: "DELETE"
+        })
+            .then(getCreations)
+    }
+
     return (
         <CreationsContext.Provider value={{
-            creations, getCreations, addCreation
+            creations, getCreations, addCreation, removeCreation
         }}>
             {props.children}
         </CreationsContext.Provider>

@@ -18,8 +18,7 @@ export const CreationForm = (props) => {
     const editMode = props.match.params.hasOwnProperty("creationId") // true or false 
 
     const handleControlledInputChange = (event) => {
-        const newCreation = Object.assign({}, creation)
-        console.log(creation)         // Create a copy
+        const newCreation = Object.assign({}, creation)         // Create a copy
         newCreation[event.target.name] = event.target.value     // Modify Copy
         setCreation(newCreation)                                // Set copy as new state
     }

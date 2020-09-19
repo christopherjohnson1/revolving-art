@@ -29,9 +29,20 @@ export const CreationsProvider = (props) => {
             .then(getCreations)
     }
 
+    const updateCreation = creation => {
+        return fetch(`http://localhost:8088/creations/${creation.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(creation)
+        })
+            .then(getCreations)
+    }
+
     return (
         <CreationsContext.Provider value={{
-            creations, getCreations, addCreation, removeCreation
+            creations, getCreations, addCreation, removeCreation, updateCreation
         }}>
             {props.children}
         </CreationsContext.Provider>

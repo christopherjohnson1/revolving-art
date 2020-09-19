@@ -3,7 +3,7 @@ import { CreationsContext } from "./CreationsProvider"
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 
-export const Creation = ({ creation, location }) => {
+export const Creation = ({ creation, location, props }) => {
     const { removeCreation } = useContext(CreationsContext)
 
     return (
@@ -14,7 +14,9 @@ export const Creation = ({ creation, location }) => {
             <Card.Text>Size: {creation.size} (size in inches)</Card.Text>
             <Card.Text>Medium: {creation.medium}</Card.Text>
             <Card.Text>Location: {location.name}</Card.Text>
-            <Button variant="primary">Edit</Button>
+            <Button 
+            onClick={() => {props.history.push(`/creations/edit/${creation.id}`)}}
+             variant="primary">Edit</Button>
             <Button
             onClick={
                 () => removeCreation(creation.id)

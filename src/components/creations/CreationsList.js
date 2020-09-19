@@ -27,7 +27,7 @@ export const CreationsList = (props) => {
                     creations.map(creation => {
                         const location = locations.find(loc => loc.id === creation.locationId) || {}
 
-                        return <Creation key={creation.id} creation={creation} location={location} />
+                        return <Creation key={creation.id} props={props} creation={creation} location={location} />
                     })
                 }
             </div>

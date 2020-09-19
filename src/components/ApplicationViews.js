@@ -3,7 +3,6 @@ import { Route } from "react-router-dom"
 import { CreationsProvider } from "./creations/CreationsProvider"
 import { LocationProvider } from "./locations/LocationProvider"
 import { CreationsList } from "./creations/CreationsList"
-import { Creation } from "./creations/Creation"
 import { CreationForm } from "./creations/CreationForm"
 
 export const ApplicationViews = (props) => {
@@ -18,9 +17,19 @@ export const ApplicationViews = (props) => {
         </CreationsProvider>
 
         <CreationsProvider>
-            <Route path="/creations/add" render={(props) => {
-                return <CreationForm history={props.history} />
+            <LocationProvider>
+                <Route path="/creations/add" render={(props) => {
+                    return <CreationForm {...props} />
+                }} />
+            </LocationProvider>
+        </CreationsProvider>
+        
+        <CreationsProvider>
+            <LocationProvider>
+            <Route path="/creations/edit/:creationId(\d+)" render={(props) => {
+                return <CreationForm {...props} />
             }} />
+            </LocationProvider>
         </CreationsProvider>
 
         <Route path="/logout" render={

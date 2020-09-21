@@ -48,7 +48,7 @@ export const CreationForm = (props) => {
                 title: creation.title,
                 size: creation.size,
                 medium: creation.medium,
-                imageURL: image,
+                imageURL: creation.imageURL,
                 locationId: parseInt(creation.locationId)
             })
                 .then(() => props.history.push("/creations"))
@@ -86,6 +86,10 @@ export const CreationForm = (props) => {
         <form>
             <fieldset>
                 <h2 className="creationForm__title">{editMode ? "Update Creation" : "New Creation"}</h2>
+                {editMode 
+                ? (<div className="creation__image">
+                    <img src={creation.imageURL} alt={creation.title} style={{width: '300px'}} />
+                </div>) : (
                 <div className="form-group">
                     <label htmlFor="creationImage">Creation Image: </label>
                     <input type="file" 
@@ -101,6 +105,7 @@ export const CreationForm = (props) => {
                                 <img src={image} style={{width: '300px'}} alt="" />
                             )}
                 </div>
+                )}
             </fieldset>
             <fieldset>
                 <div className="form-group">

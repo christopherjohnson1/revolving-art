@@ -17,11 +17,11 @@ export const CreationsList = (props) => {
 
     return (
         <>
-        <Button onClick={() => props.history.push("/creations/add")} variant="success">Add a new creation</Button>
         <main className="creationContainer">
             <div className="creationsHeading">
-                <h1>My Collection</h1>
+                <h1 className="text-center">My Collection</h1>
             </div>
+            <div className="creation-btn-container"><Button className="text-center" onClick={() => props.history.push("/creations/add")} variant="success">Add a new creation</Button></div>
             <div className="creations">
                 {
                     creations.map(creation => {

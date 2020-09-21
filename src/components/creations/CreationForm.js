@@ -42,6 +42,10 @@ export const CreationForm = (props) => {
 
 
     const constructNewCreation = () => {
+
+        const userId = parseInt(localStorage.getItem("revolving_art_customer"))
+
+
         if (editMode) {
             updateCreation({
                 id: creation.id,
@@ -49,6 +53,7 @@ export const CreationForm = (props) => {
                 size: creation.size,
                 medium: creation.medium,
                 imageURL: creation.imageURL,
+                userId: creation.userId,
                 locationId: parseInt(creation.locationId)
             })
                 .then(() => props.history.push("/creations"))
@@ -58,6 +63,7 @@ export const CreationForm = (props) => {
                 size: creation.size,
                 medium: creation.medium,
                 imageURL: image,
+                userId: userId,
                 locationId: parseInt(creation.locationId)
             })
                 .then(() => props.history.push("/creations"))

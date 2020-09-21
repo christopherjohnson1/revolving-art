@@ -1,4 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
+
 .landingImage {
     display: flex;
     justify-content: center;
+}
+
+.landing-page-text {
+    position: absolute;
+    color: yellow;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    text-align: center;
+    font-family: 'Ranchers', cursive;
 }

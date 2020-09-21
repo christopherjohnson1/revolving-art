@@ -1,5 +1,6 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { LandingPage } from "./landingPage/LandingPage";
 import { CreationsProvider } from "./creations/CreationsProvider"
 import { LocationProvider } from "./locations/LocationProvider"
 import { CreationsList } from "./creations/CreationsList"
@@ -8,6 +9,10 @@ import { CreationForm } from "./creations/CreationForm"
 export const ApplicationViews = (props) => {
     return (
         <>
+        <Route exact path="/">
+            <LandingPage />
+        </Route>
+
         <CreationsProvider>
             <LocationProvider>
                 <Route exact path="/creations" render={(props) => {

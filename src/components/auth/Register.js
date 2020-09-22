@@ -37,7 +37,7 @@ export const Register = (props) => {
                             artistDescription: artistDescription.current.value,
                             profilePhoto: profilePhoto.current.value,
                             name: `${firstName.current.value} ${lastName.current.value}`,
-                            isArtist: artist
+                            isArtist: artist.isArtist
                         })
                     })
                         .then(_ => _.json())
@@ -56,11 +56,12 @@ export const Register = (props) => {
 
     const handleChange = (browserEvent) => {
         const newBool = Object.assign({}, artist)
-        newBool[browserEvent.target.name] = browserEvent.target.value
-        console.log(newBool)
-        debugger
+        newBool[browserEvent.target.name] = JSON.parse(browserEvent.target.value)
         setArtist(newBool)
     }
+
+    console.log(artist)
+
 
     
     return (
@@ -109,10 +110,10 @@ export const Register = (props) => {
                 <div className="form-group">
                     <label htmlFor="isArtist">Are you an artist? </label>
                     <select name="isArtist" className="form-control"
-                        value={artist}
+                        // value={artist}
                         onChange={handleChange}>
 
-                            <option value="null">Select Yes or No</option>
+                            <option value={null}>Select Yes or No</option>
                                 <option key={1} value={true}>Yes</option>
                                 <option key={2} value={false}>No</option>
                         </select>

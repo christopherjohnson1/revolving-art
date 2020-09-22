@@ -1,7 +1,10 @@
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import "./Login.css"
 
 export const Register = (props) => {
+
+    const [artist, setArtist] = useState(null)
+
     const firstName = useRef()
     const lastName = useRef()
     const email = useRef()
@@ -33,7 +36,8 @@ export const Register = (props) => {
                             password: password.current.value,
                             artistDescription: artistDescription.current.value,
                             profilePhoto: profilePhoto.current.value,
-                            name: `${firstName.current.value} ${lastName.current.value}`
+                            name: `${firstName.current.value} ${lastName.current.value}`,
+                            isArtist: artist
                         })
                     })
                         .then(_ => _.json())
@@ -49,6 +53,16 @@ export const Register = (props) => {
         }
     }
 
+
+    const handleChange = (browserEvent) => {
+        const newBool = Object.assign({}, artist)
+        newBool[browserEvent.target.name] = browserEvent.target.value
+        console.log(newBool)
+        debugger
+        setArtist(newBool)
+    }
+
+    
     return (
         <main style={{ textAlign: "center" }}>
 
@@ -91,6 +105,19 @@ export const Register = (props) => {
                         placeholder="Image URL"
                         required />
                 </fieldset>
+                <fieldset>
+                <div className="form-group">
+                    <label htmlFor="isArtist">Are you an artist? </label>
+                    <select name="isArtist" className="form-control"
+                        value={artist}
+                        onChange={handleChange}>
+
+                            <option value="null">Select Yes or No</option>
+                                <option key={1} value={true}>Yes</option>
+                                <option key={2} value={false}>No</option>
+                        </select>
+                </div>
+            </fieldset>
                 <fieldset>
                     <label htmlFor="inputEmail"> Email address </label>
                     <input ref={email} type="email"

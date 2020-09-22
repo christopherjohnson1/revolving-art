@@ -13,7 +13,6 @@ export const NavBar = (props) => {
     }, [])
     
     const currentUser = users.find(usr => usr.id === parseInt(localStorage.getItem("revolving_art_customer"))) || {}
-    console.log(currentUser)
     return (
         <>  
             {currentUser.isArtist ? (

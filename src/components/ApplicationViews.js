@@ -7,6 +7,7 @@ import { CreationsList } from "./creations/CreationsList"
 import { CreationForm } from "./creations/CreationForm"
 
 export const ApplicationViews = (props) => {
+
     return (
         <>
         <Route exact path="/">

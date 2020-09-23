@@ -40,7 +40,7 @@ export const NavBar = (props) => {
                             <Link className="navbar__link" to="/">Revolving Art</Link>
                         </li>
                         <li className="navbar__item active">
-                            <Link className="navbar__link" to="/creations">Bizness</Link>
+                            <Link className="navbar__link" to="/artists">Artists</Link>
                         </li>
                         <li className="navbar__item">
                             <Link className="navbar__link" to="/logout">Logout</Link>

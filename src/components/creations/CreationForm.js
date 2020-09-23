@@ -43,7 +43,7 @@ export const CreationForm = (props) => {
         getCreationInEditMode()
     }, [creations])
 
-    // if in edit mode use PUT method, otherwist use POST
+    // if in edit mode use PUT method, otherwise use POST
     const constructNewCreation = () => {
 
         const userId = parseInt(localStorage.getItem("revolving_art_customer"))

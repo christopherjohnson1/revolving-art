@@ -5,7 +5,7 @@ import { ArtistWorksList } from "./ArtistWorksList"
 
 export const ArtistWorks = (props) => {
     const { getUserCreations, userCreations } = useContext(CreationsContext)
-    const { getCurrentArtist, currentArtist } = useContext(UserContext)
+    const { getCurrentArtist, currentArtist, users, getUsers } = useContext(UserContext)
 
     useEffect(() => {
         const artistId = props.match.params.artistId
@@ -18,7 +18,7 @@ export const ArtistWorks = (props) => {
         <main className="creationContainer">
             <div className="creationsHeading">{
             }
-                <h1 className="text-center">{currentArtist.name}'s Works</h1>
+                <h1 className="text-center">{currentArtist.name}'s Collection</h1>
             </div>
             <div className="creations">
                 {

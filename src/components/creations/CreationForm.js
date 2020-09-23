@@ -14,15 +14,17 @@ export const CreationForm = (props) => {
     // following state is for component state
     const [creation, setCreation] = useState({})
 
-    // is there a URL parameter???
+    // is there a URL parameter of creationId???
     const editMode = props.match.params.hasOwnProperty("creationId") // true or false 
 
+    // updates the state of creation
     const handleControlledInputChange = (event) => {
         const newCreation = Object.assign({}, creation)         // Create a copy
         newCreation[event.target.name] = event.target.value     // Modify Copy
         setCreation(newCreation)                                // Set copy as new state
     }
 
+    // if in edit mode, find the creation that matched the creationId to fill the edit fields
     const getCreationInEditMode = () => {
         if (editMode) {
             const creationId = parseInt(props.match.params.creationId)
@@ -30,6 +32,7 @@ export const CreationForm = (props) => {
             setCreation(selectedCreation)
         }
     }
+
     // Get Creations from API when component initializes
     useEffect(() => {
         getCreations()
@@ -40,11 +43,10 @@ export const CreationForm = (props) => {
         getCreationInEditMode()
     }, [creations])
 
-
+    // if in edit mode use PUT method, otherwist use POST
     const constructNewCreation = () => {
 
         const userId = parseInt(localStorage.getItem("revolving_art_customer"))
-
 
         if (editMode) {
             updateCreation({
@@ -70,6 +72,7 @@ export const CreationForm = (props) => {
         }
     }
 
+    // upload image to cloudinary
     const uploadImage = async e => {
         const files = e.target.files
         const data = new FormData()
@@ -92,6 +95,7 @@ export const CreationForm = (props) => {
         <form>
             <fieldset>
                 <h2 className="creationForm__title">{editMode ? "Update Creation" : "New Creation"}</h2>
+                {/* if in edit mode, populate the image at top of form otherwise populate with image upload field */}
                 {editMode 
                 ? (<div className="creation__image">
                     <img src={creation.imageURL} alt={creation.title} style={{width: '300px'}} />

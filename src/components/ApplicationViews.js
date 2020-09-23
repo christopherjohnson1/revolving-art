@@ -6,6 +6,7 @@ import { LocationProvider } from "./locations/LocationProvider"
 import { CreationsList } from "./creations/CreationsList"
 import { CreationForm } from "./creations/CreationForm"
 
+
 export const ApplicationViews = (props) => {
 
     return (
@@ -16,9 +17,9 @@ export const ApplicationViews = (props) => {
 
         <CreationsProvider>
             <LocationProvider>
-                <Route exact path="/creations" render={(props) => {
-                    return <CreationsList history={props.history} />
-                }} />
+                    <Route exact path="/creations" render={(props) => {
+                        return <CreationsList history={props.history} />
+                    }} />
             </LocationProvider>
         </CreationsProvider>
 

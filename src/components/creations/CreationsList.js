@@ -6,15 +6,17 @@ import Button from "react-bootstrap/Button"
 import "./Creations.css"
 
 export const CreationsList = (props) => {
-    const { getCreations, creations } = useContext(CreationsContext)
+    const { getUserCreations, userCreations } = useContext(CreationsContext)
     const { getLocations, locations } = useContext(LocationContext)
 
+    
     // Initialization effect hook -> Go get creations data
     useEffect(() => {
-        getCreations()
+        const currentUser = parseInt(localStorage.getItem("revolving_art_customer"))
+        getUserCreations(currentUser)
         .then(getLocations)
     }, [])
-
+    
     return (
         <>
         <main className="creationContainer">
@@ -24,7 +26,7 @@ export const CreationsList = (props) => {
             <div className="creation-btn-container"><Button className="text-center" onClick={() => props.history.push("/creations/add")} variant="success">Add a new creation</Button></div>
             <div className="creations">
                 {
-                    creations.map(creation => {
+                    userCreations.map(creation => {
                         const location = locations.find(loc => loc.id === creation.locationId) || {}
 
                         return <Creation key={creation.id} props={props} creation={creation} location={location} />

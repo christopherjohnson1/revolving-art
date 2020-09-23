@@ -4,6 +4,13 @@ export const CreationsContext = React.createContext()
 
 export const CreationsProvider = (props) => {
     const [creations, setCreations] = useState([])
+    const [userCreations, setUserCreations] = useState([])
+
+    const getUserCreations = (userId) => {
+        return fetch(`http://localhost:8088/creations?userId=${userId}`)
+            .then(res => res.json())
+            .then(setUserCreations)
+    }
 
     const getCreations = () => {
         return fetch("http://localhost:8088/creations")
@@ -42,7 +49,13 @@ export const CreationsProvider = (props) => {
 
     return (
         <CreationsContext.Provider value={{
-            creations, getCreations, addCreation, removeCreation, updateCreation
+            creations, 
+            getCreations, 
+            addCreation, 
+            removeCreation, 
+            updateCreation,
+            getUserCreations,
+            userCreations
         }}>
             {props.children}
         </CreationsContext.Provider>

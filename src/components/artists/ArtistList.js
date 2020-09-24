@@ -7,7 +7,7 @@ export const ArtistList = (props) => {
     
     // get the users that are artists from API
     useEffect(() => {
-        getArtistUsers()
+        getArtistUsers()  //go get the users from the API that are artists (isArtist: true)
     }, [])
 
     return (

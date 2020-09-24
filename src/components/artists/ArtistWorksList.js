@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect } from "react"
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import { RequestContext } from "../requests/RequestProvider"
@@ -12,16 +12,18 @@ export const ArtistWorksList = ({ creation, props }) => {
 
     useEffect(() => {
         const currentUser = localStorage.getItem("revolving_art_customer")
-        getBusinessUser(currentUser)
+        getBusinessUser(currentUser)  // get the user that matches the id of the current user, it will then update business user to that user object
         getLocations()
     }, [])
     
     
-    const buildNewRequest = (creationName) => {
-        const locationId = parseInt(businessUser.locationId)
-        const selectedLocation = locations.find(l => l.id === locationId) || {}
+    const buildNewRequest = (creationName, artistId) => {
+        const locationId = parseInt(businessUser.locationId) // the id of the business the current user is affiliated with
+        const selectedLocation = locations.find(l => l.id === locationId) || {} // find the location that matches the id of the location the current user is affiliated with
         newRequest({
-            message: `${businessUser.name} wants to feature ${creationName} at ${selectedLocation.name}`
+            message: `${businessUser.name} wants to feature ${creationName} at ${selectedLocation.name}`,
+            artistId: `${artistId}`,
+            businessUserId: `${businessUser.id}`
         })
     }
 
@@ -37,7 +39,7 @@ export const ArtistWorksList = ({ creation, props }) => {
              variant="primary"
              onClick={evt => {
                  evt.preventDefault()
-                 buildNewRequest(creation.title)
+                 buildNewRequest(creation.title, creation.userId)
              }}>Request</Button>
             </Card.Body>
         </Card>

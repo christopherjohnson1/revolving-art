@@ -5,12 +5,12 @@ import { ArtistWorksList } from "./ArtistWorksList"
 
 export const ArtistWorks = (props) => {
     const { getUserCreations, userCreations } = useContext(CreationsContext)
-    const { getCurrentArtist, currentArtist, users, getUsers } = useContext(UserContext)
+    const { getCurrentArtist, currentArtist } = useContext(UserContext)
 
     useEffect(() => {
         const artistId = props.match.params.artistId
-        getUserCreations(artistId)
-        getCurrentArtist(artistId)
+        getUserCreations(artistId)  // Get the creations from API that match the artistId
+        getCurrentArtist(artistId)  // Get the current artist to display their name as the heading
     }, [])
     
     return (

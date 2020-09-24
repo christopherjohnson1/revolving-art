@@ -18,10 +18,13 @@ export const ArtistWorksList = ({ creation, props }) => {
     
     
     const buildNewRequest = (creationName) => {
+        const locationId = parseInt(businessUser.locationId)
+        const selectedLocation = locations.find(l => l.id === locationId) || {}
         newRequest({
-            message: `${businessUser.name} wants to feature ${creationName} at their business`
+            message: `${businessUser.name} wants to feature ${creationName} at ${selectedLocation.name}`
         })
     }
+
 
     return (
         <Card className="creation" key={creation.id} style={{ width: '18rem' }}>

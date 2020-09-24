@@ -15,8 +15,9 @@ export const ApplicationViews = (props) => {
     return (
         <>
         {/* Begin Landing Page */}
-        <Route exact path="/">
-            <LandingPage />
+        <Route exact path="/" render={(props) => {
+            return <LandingPage history={props.history} />
+        }}>
         </Route>
         {/* End Landing Page */}
 

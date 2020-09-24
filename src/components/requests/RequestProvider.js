@@ -29,13 +29,22 @@ export const RequestProvider = (props) => {
             .then(setUserRequests)
     }
 
+    const removeRequest = (requestId) => {
+        return fetch(`http://localhost:8088/requests/${requestId}`, {
+            method: "DELETE"
+        })
+            .then(getRequests)
+
+    }
+
     return (
         <RequestContext.Provider value={{
             requests,
             getRequests,
             newRequest,
             getUserRequests,
-            userRequests
+            userRequests,
+            removeRequest
         }}>
             {props.children}
         </RequestContext.Provider>

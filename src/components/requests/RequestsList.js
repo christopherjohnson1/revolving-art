@@ -1,11 +1,9 @@
 import React, { useContext, useEffect } from "react"
 import { RequestContext } from "./RequestProvider"
-import { CreationsContext } from "../creations/CreationsProvider"
 import { UserRequest } from "./UserRequest"
 
 export const RequestsList = (props) => {
     const { getUserRequests, userRequests } = useContext(RequestContext)
-    const { getCreations, creations } = useContext(CreationsContext)
 
 
     useEffect(() => {
@@ -13,10 +11,6 @@ export const RequestsList = (props) => {
         getUserRequests(userId)
     }, [])
     
-    useEffect(() => {
-        getCreations()
-    }, [])
-
     return (
         <>
     <main className="requestContainer">
@@ -24,9 +18,7 @@ export const RequestsList = (props) => {
         <div className="requests">
             {
                 userRequests.map(userRequest => {
-                    console.log(creations)
-                    const creation = creations.find(c => c.id === userRequest.creationId) || {}
-                    return <UserRequest key={userRequest.id} props={props} creation={creation} userRequest={userRequest} />
+                    return <UserRequest key={userRequest.id} props={props} userRequest={userRequest} />
                 })
             }
         </div>

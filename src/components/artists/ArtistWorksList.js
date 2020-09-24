@@ -17,13 +17,14 @@ export const ArtistWorksList = ({ creation, props }) => {
     }, [])
     
     
-    const buildNewRequest = (creationName, artistId) => {
+    const buildNewRequest = (creationName, artistId, creationId) => {
         const locationId = parseInt(businessUser.locationId) // the id of the business the current user is affiliated with
         const selectedLocation = locations.find(l => l.id === locationId) || {} // find the location that matches the id of the location the current user is affiliated with
         newRequest({
             message: `${businessUser.name} wants to feature ${creationName} at ${selectedLocation.name}`,
             artistId: `${artistId}`,
-            businessUserId: `${businessUser.id}`
+            businessUserId: `${businessUser.id}`,
+            creationId: `${creationId}`
         })
     }
 
@@ -39,7 +40,7 @@ export const ArtistWorksList = ({ creation, props }) => {
              variant="primary"
              onClick={evt => {
                  evt.preventDefault()
-                 buildNewRequest(creation.title, creation.userId)
+                 buildNewRequest(creation.title, creation.userId, creation.id)
              }}>Request</Button>
             </Card.Body>
         </Card>

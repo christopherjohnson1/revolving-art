@@ -15,6 +15,7 @@ export const NavBar = (props) => {
     
     // find the user that matches the id of the current user
     const currentUser = users.find(usr => usr.id === parseInt(localStorage.getItem("revolving_art_customer"))) || {}
+    
     return (
         <>  
         {/* if the current user is an artist present them with the first set of nav links
@@ -32,6 +33,8 @@ export const NavBar = (props) => {
                             <Link className="navbar__link" to="/logout">Logout</Link>
                         </li>
                     </ul>
+                    <img onClick={() => props.history.push(`/profile/${currentUser.id}`)} 
+                    className="nav-profilePhoto" src={currentUser.profilePhoto} alt="" />
                 </Navbar>
                 ) : (
                     <Navbar bg="dark" variant="dark" className="d-flex justify-content-end">
@@ -46,6 +49,8 @@ export const NavBar = (props) => {
                             <Link className="navbar__link" to="/logout">Logout</Link>
                         </li>
                         </ul>
+                        <img onClick={() => props.history.push(`/profile/${currentUser.id}`)} 
+                        className="nav-profilePhoto" src={currentUser.profilePhoto} alt="" />
                     </Navbar>
                 )}
         </>

@@ -1,0 +1,12 @@
+.profileContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.profileCard {
+    width: 33rem;
+}
+
+.profilePhoto {
+    width: 333px;
+}

@@ -10,7 +10,7 @@ export const Artist = ({ artistUser, props }) => {
             <Card.Title>{artistUser.name}</Card.Title>
             <Card.Text>{artistUser.artistDescription}</Card.Text>
             <Button
-            onClick={() => {props.history.push(`/artists/works/${artistUser.id}`)}}>View Art</Button>
+            onClick={() => {props.history.push(`/artists/works/${artistUser.id}`)}}>View Collection</Button>
             </Card.Body>
         </Card>
     )

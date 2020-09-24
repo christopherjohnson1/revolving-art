@@ -8,14 +8,16 @@ import { CreationForm } from "./creations/CreationForm"
 import { UserProvider } from "./users/UserProvider"
 import { ArtistList } from "./artists/ArtistList"
 import { ArtistWorks } from "./artists/ArtistWorks"
+import { RequestProvider } from "./requests/RequestProvider"
 
 export const ApplicationViews = (props) => {
 
     return (
         <>
         {/* Begin Landing Page */}
-        <Route exact path="/">
-            <LandingPage />
+        <Route exact path="/" render={(props) => {
+            return <LandingPage history={props.history} />
+        }}>
         </Route>
         {/* End Landing Page */}
 
@@ -54,9 +56,13 @@ export const ApplicationViews = (props) => {
 
         <CreationsProvider>
             <UserProvider>
-                <Route path="/artists/works/:artistId(\d+)" render={(props) => {
-                    return <ArtistWorks {...props} />
-                }} />
+                <RequestProvider>
+                    <LocationProvider>
+                    <Route path="/artists/works/:artistId(\d+)" render={(props) => {
+                        return <ArtistWorks {...props} />
+                    }} />
+                    </LocationProvider>
+                </RequestProvider>
             </UserProvider>
         </CreationsProvider>
         {/* End Artist Section */}

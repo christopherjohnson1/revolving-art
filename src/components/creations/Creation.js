@@ -11,7 +11,7 @@ export const Creation = ({ creation, location, props }) => {
             <Card.Img variant="top" src={creation.imageURL} />
             <Card.Body>
             <Card.Title>{creation.title}</Card.Title>
-            <Card.Text>Size: {creation.size} (size in inches)</Card.Text>
+            <Card.Text>Size: {creation.size}</Card.Text>
             <Card.Text>Medium: {creation.medium}</Card.Text>
             <Card.Text>Location: {location.name}</Card.Text>
             <Button 

@@ -4,6 +4,7 @@ export const RequestContext = React.createContext()
 
 export const RequestProvider = (props) => {
     const [requests, setRequests] = useState([])
+    const [userRequests, setUserRequests] =useState([])
 
     const getRequests = () => {
         return fetch("http://localhost:8088/requests")
@@ -21,11 +22,20 @@ export const RequestProvider = (props) => {
         })
         .then(getRequests)
     }
+
+    const getUserRequests = (userId) => {
+        return fetch(`http://localhost:8088/requests?artistId=${userId}`)
+            .then(res => res.json())
+            .then(setUserRequests)
+    }
+
     return (
         <RequestContext.Provider value={{
             requests,
             getRequests,
-            newRequest
+            newRequest,
+            getUserRequests,
+            userRequests
         }}>
             {props.children}
         </RequestContext.Provider>

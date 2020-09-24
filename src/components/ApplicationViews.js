@@ -9,6 +9,7 @@ import { UserProvider } from "./users/UserProvider"
 import { ArtistList } from "./artists/ArtistList"
 import { ArtistWorks } from "./artists/ArtistWorks"
 import { RequestProvider } from "./requests/RequestProvider"
+import { RequestsList } from "./requests/RequestsList"
 import { UserProfile } from "./users/UserProfile"
 
 export const ApplicationViews = (props) => {
@@ -74,6 +75,16 @@ export const ApplicationViews = (props) => {
                             <Route path="/profile/:userId(\d+)" render={(props) => {
                                 return <UserProfile {...props} />
                             }} />
+                        </RequestProvider>
+                    </UserProvider>
+
+                    <UserProvider>
+                        <RequestProvider>
+                            <CreationsProvider>
+                            <Route path="/requests/:userId(\d+)" render={(props) => {
+                                return <RequestsList {...props} />
+                            }} />
+                            </CreationsProvider>
                         </RequestProvider>
                     </UserProvider>
 

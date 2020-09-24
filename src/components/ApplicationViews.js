@@ -2,13 +2,14 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { LandingPage } from "./landingPage/LandingPage"
 import { CreationsProvider } from "./creations/CreationsProvider"
-import { LocationProvider } from "./locations/LocationProvider"
 import { CreationsList } from "./creations/CreationsList"
 import { CreationForm } from "./creations/CreationForm"
+import { LocationProvider } from "./locations/LocationProvider"
 import { UserProvider } from "./users/UserProvider"
 import { ArtistList } from "./artists/ArtistList"
 import { ArtistWorks } from "./artists/ArtistWorks"
 import { RequestProvider } from "./requests/RequestProvider"
+import { UserProfile } from "./users/UserProfile"
 
 export const ApplicationViews = (props) => {
 
@@ -66,6 +67,17 @@ export const ApplicationViews = (props) => {
             </UserProvider>
         </CreationsProvider>
         {/* End Artist Section */}
+
+        {/* Begin Profile Section */}
+                    <UserProvider>
+                        <RequestProvider>
+                            <Route path="/profile/:userId(\d+)" render={(props) => {
+                                return <UserProfile {...props} />
+                            }} />
+                        </RequestProvider>
+                    </UserProvider>
+
+        {/* End Profile Section */}
 
         {/* Begin Logout */}
         <Route path="/logout" render={

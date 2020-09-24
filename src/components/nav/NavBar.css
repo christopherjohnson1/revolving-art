@@ -18,6 +18,12 @@
     color: #FCA311;
 }
 
+.nav-profilePhoto {
+    width: 66px;
+    border-radius: 33px;
+    cursor: pointer;
+}
+
 /* Color Palette  */
 /* black #000000 */
 /* dark blue #14213D */

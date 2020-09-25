@@ -31,3 +31,7 @@
     flex-flow: column;
 
 }
+
+.creationForm__title {
+    margin-top: 88px;
+}

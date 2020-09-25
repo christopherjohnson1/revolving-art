@@ -36,6 +36,7 @@ export const ArtistWorksList = ({ creation, props }) => {
             <Card.Title>{creation.title}</Card.Title>
             <Card.Text>Size: {creation.size}</Card.Text>
             <Card.Text>Medium: {creation.medium}</Card.Text>
+            <Card.Text>Rate: $10/ month</Card.Text>
             <Button 
              variant="primary"
              onClick={evt => {

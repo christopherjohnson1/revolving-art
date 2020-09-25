@@ -33,6 +33,7 @@ export const NavBar = (props) => {
                             <Link className="navbar__link" to="/logout">Logout</Link>
                         </li>
                     </ul>
+                        <button onClick={() => props.history.push(`/requests/${currentUser.id}`)}>Requests</button>
                     <img onClick={() => props.history.push(`/profile/${currentUser.id}`)} 
                     className="nav-profilePhoto" src={currentUser.profilePhoto} alt="" />
                 </Navbar>

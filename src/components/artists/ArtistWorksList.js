@@ -21,7 +21,7 @@ export const ArtistWorksList = ({ creation, props }) => {
         const locationId = parseInt(businessUser.locationId) // the id of the business the current user is affiliated with
         const selectedLocation = locations.find(l => l.id === locationId) || {} // find the location that matches the id of the location the current user is affiliated with
         newRequest({
-            message: `${businessUser.name} wants to feature ${creationName} at ${selectedLocation.name}`,
+            message: `${businessUser.name} wants to feature your piece ${creationName} at ${selectedLocation.name}`,
             artistId: `${artistId}`,
             businessUserId: `${businessUser.id}`,
             creationId: `${creationId}`

@@ -21,7 +21,7 @@ export const NavBar = (props) => {
         {/* if the current user is an artist present them with the first set of nav links
             otherwise present the user with the second set */}
             {currentUser.isArtist ? (
-                <Navbar bg="dark" variant="dark" className="d-flex justify-content-end">
+                <Navbar bg="dark" variant="dark" className="revolving-navbar d-flex justify-content-end fixed-top">
                     <ul className="navbar__actual">
                         <li className="navbar__item active">
                             <Link className="navbar__link" to="/">Revolving Art</Link>
@@ -37,7 +37,7 @@ export const NavBar = (props) => {
                     className="nav-profilePhoto" src={currentUser.profilePhoto} alt="" />
                 </Navbar>
                 ) : (
-                    <Navbar bg="dark" variant="dark" className="d-flex justify-content-end">
+                    <Navbar bg="dark" variant="dark" className="revolving-navbar d-flex justify-content-end fixed-top">
                         <ul className="navbar__actual">
                         <li className="navbar__item active">
                             <Link className="navbar__link" to="/">Revolving Art</Link>

@@ -1,0 +1,15 @@
+.artistHeading {
+    margin-top: 66px;
+}
+
+.artistContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.artist {
+    flex-basis: 25%;
+    margin: 1em;
+    padding: 1em;
+}

@@ -19,7 +19,9 @@ export const Creation = ({ creation, location, props }) => {
              variant="primary">Edit</Button>
             <Button
             onClick={
-                () => removeCreation(creation.id)
+                () => 
+                    removeCreation(creation.id)
+                    .then(() => props.history.go(0))
             }
              variant="danger">Delete</Button>
             </Card.Body>

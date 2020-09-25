@@ -1,8 +1,8 @@
 .artistHeading {
-    margin-top: 66px;
+    margin-top: 88px;
 }
 
-.artistContainer {
+.artistsContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -14,15 +14,23 @@
     padding: 1em;
 }
 
-.creationContainer {
+.artistWorksContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     
 }
 
-.creationCard {
-    flex-basis: 25%;
-    margin: 1em;
-    padding: 1em;
+.artistWorksCard {
+    flex-basis: 25%!important;
+    margin: 1em!important;
+    padding: 1em!important;
+}
+
+.artistWorksHeading {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    margin-top: 88px;
 }

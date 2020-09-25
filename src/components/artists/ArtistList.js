@@ -17,7 +17,7 @@ export const ArtistList = (props) => {
             <div className="artistHeading">
                 <h1 className="text-center">Available Artists</h1>
             </div>
-            <div className="artistsContainer">
+            <div className="artistsContainer container-fluid">
                 {
                     artistUsers.map(artistUser => {
                         return <Artist key={artistUser.id} props={props} artistUser={artistUser}  />

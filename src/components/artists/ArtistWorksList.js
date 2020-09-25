@@ -30,7 +30,7 @@ export const ArtistWorksList = ({ creation, props }) => {
 
 
     return (
-        <Card className=".creationCard" key={creation.id} style={{ width: '18rem' }}>
+        <Card className=".artistWorksCard p-3 m-2" key={creation.id} style={{ width: '25rem' }}>
             <Card.Img variant="top" src={creation.imageURL} />
             <Card.Body>
             <Card.Title>{creation.title}</Card.Title>

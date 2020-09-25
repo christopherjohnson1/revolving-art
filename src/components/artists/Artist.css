@@ -13,3 +13,16 @@
     margin: 1em;
     padding: 1em;
 }
+
+.creationContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.creationCard {
+    flex-basis: 25%;
+    margin: 1em;
+    padding: 1em;
+}

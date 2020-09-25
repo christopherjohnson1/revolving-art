@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+
 .creations {
     display: flex;
     flex-wrap: wrap;
@@ -11,6 +13,7 @@
 }
 
 .creationsHeading {
+    margin-top: 88px;
     display: flex;
     justify-content: center;
     flex-flow: column;
@@ -19,4 +22,16 @@
 .creation-btn-container {
     display: flex;
     justify-content: center;
+}
+
+.creationContainer {
+    background-color: #E5E5E5;
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    flex-flow: column;
+
+}
+
+.creationForm__title {
+    margin-top: 88px;
 }

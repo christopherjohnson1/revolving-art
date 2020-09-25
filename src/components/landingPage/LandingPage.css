@@ -3,6 +3,7 @@
 .landingImage {
     display: flex;
     justify-content: center;
+    margin-top: 66px;
 }
 
 .landing-page-text {
@@ -23,6 +24,22 @@
        1px 1px 0 #FCA311;
 }
 
+.landing-btn {
+    font-family: 'Ranchers', cursive;
+    background-color: #FCA311;
+    color: #14213D;
+    padding: 8px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.landingContainer {
+    background-color: #18212A!important;
+}
 /* Color Palette  */
 /* black #000000 */
 /* dark blue #14213D */

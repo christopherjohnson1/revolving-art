@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { UserContext } from "../users/UserProvider"
 import { Artist } from "./Artist"
+import "./Artist.css"
 
 export const ArtistList = (props) => {
     const { getArtistUsers, artistUsers } = useContext(UserContext)
@@ -12,11 +13,11 @@ export const ArtistList = (props) => {
 
     return (
         <>
-        <main className="artistContainer">
+        <main>
             <div className="artistHeading">
                 <h1 className="text-center">Available Artists</h1>
             </div>
-            <div className="artists">
+            <div className="artistsContainer container-fluid">
                 {
                     artistUsers.map(artistUser => {
                         return <Artist key={artistUser.id} props={props} artistUser={artistUser}  />

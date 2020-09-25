@@ -15,12 +15,11 @@ export const ArtistWorks = (props) => {
     
     return (
         <>
-        <main className="creationContainer">
-            <div className="creationsHeading">{
-            }
+        <main>
+            <div className="artistWorksHeading">
                 <h1 className="text-center">{currentArtist.name}'s Collection</h1>
             </div>
-            <div className="creations">
+            <div className="artistWorksContainer container-fluid">
                 {
                     userCreations.map(creation => {
                         return <ArtistWorksList key={creation.id} props={props} creation={creation} />

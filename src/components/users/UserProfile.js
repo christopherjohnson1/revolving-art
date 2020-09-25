@@ -13,10 +13,13 @@ export const UserProfile = (props) => {
         getCurrentArtist(userId)
     }, [])
 
+    const isArtist = currentArtist.isArtist
+
+
     return (
         <>
         <main className="profileContainer">
-            <Card className="profileCard my-5">
+            <Card className="profileCard">
                 <Card.Img className="profilePhoto" variant="top" src={currentArtist.profilePhoto} />
                 <Card.Body>
                 <Card.Title className="userName">{currentArtist.name}</Card.Title>

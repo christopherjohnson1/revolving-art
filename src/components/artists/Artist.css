@@ -1,0 +1,36 @@
+.artistHeading {
+    margin-top: 88px;
+}
+
+.artistsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.artist {
+    flex-basis: 25%;
+    margin: 1em;
+    padding: 1em;
+}
+
+.artistWorksContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.artistWorksCard {
+    flex-basis: 25%!important;
+    margin: 1em!important;
+    padding: 1em!important;
+}
+
+.artistWorksHeading {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    margin-top: 88px;
+}

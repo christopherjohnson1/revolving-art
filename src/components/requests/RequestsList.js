@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { RequestContext } from "./RequestProvider"
 import { UserRequest } from "./UserRequest"
+import "./RequestsList.css"
 
 export const RequestsList = (props) => {
     const { getUserRequests, userRequests } = useContext(RequestContext)
@@ -13,9 +14,9 @@ export const RequestsList = (props) => {
     
     return (
         <>
-    <main className="requestContainer">
-        <div className="requestHeading"><h1>Requests for feature!</h1></div>
+        <main className="requestContainer">
         <div className="requests">
+        <div className="requestHeading py-3"><h1>Requests for feature!</h1></div>
             {
                 userRequests.map(userRequest => {
                     return <UserRequest key={userRequest.id} props={props} userRequest={userRequest} />

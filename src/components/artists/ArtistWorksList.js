@@ -21,7 +21,7 @@ export const ArtistWorksList = ({ creation, props }) => {
         const locationId = parseInt(businessUser.locationId) // the id of the business the current user is affiliated with
         const selectedLocation = locations.find(l => l.id === locationId) || {} // find the location that matches the id of the location the current user is affiliated with
         newRequest({
-            message: `${businessUser.name} wants to feature ${creationName} at ${selectedLocation.name}`,
+            message: `${businessUser.name} wants to feature your piece ${creationName} at ${selectedLocation.name}`,
             artistId: `${artistId}`,
             businessUserId: `${businessUser.id}`,
             creationId: `${creationId}`
@@ -30,12 +30,13 @@ export const ArtistWorksList = ({ creation, props }) => {
 
 
     return (
-        <Card className="creation" key={creation.id} style={{ width: '18rem' }}>
+        <Card className=".artistWorksCard p-3 m-2" key={creation.id} style={{ width: '25rem' }}>
             <Card.Img variant="top" src={creation.imageURL} />
             <Card.Body>
             <Card.Title>{creation.title}</Card.Title>
             <Card.Text>Size: {creation.size}</Card.Text>
             <Card.Text>Medium: {creation.medium}</Card.Text>
+            <Card.Text>Rate: $10/ month</Card.Text>
             <Button 
              variant="primary"
              onClick={evt => {

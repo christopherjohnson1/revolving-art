@@ -1,8 +1,5 @@
 import React from "react"
 import Card from "react-bootstrap/Card"
-// import { RequestContext } from "../requests/RequestProvider"
-// import { UserContext } from "../users/UserProvider"
-// import { LocationContext } from "../locations/LocationProvider"
 
 export const ArtistWorksList = ({ creation, props }) => {
 

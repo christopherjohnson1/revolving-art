@@ -18,6 +18,12 @@ export const CreationsProvider = (props) => {
             .then(setCreations)
     }
 
+    const getCreationById = (creationId) => {
+        return fetch(`http://localhost:8088/creations/${creationId}`)
+            .then(res => res.json())
+            .then(setCreations)
+    } 
+
     const addCreation = creation => {
         return fetch("http://localhost:8088/creations", {
             method: "POST",
@@ -55,7 +61,8 @@ export const CreationsProvider = (props) => {
             removeCreation, 
             updateCreation,
             getUserCreations,
-            userCreations
+            userCreations,
+            getCreationById
         }}>
             {props.children}
         </CreationsContext.Provider>

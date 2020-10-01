@@ -31,8 +31,10 @@ export const ArtistWorksList = ({ creation, props }) => {
 
     return (
         <Card className=".artistWorksCard p-3 m-2" key={creation.id} style={{ width: '25rem' }}>
-            <Card.Img variant="top" src={creation.imageURL} />
-            <Card.Body>
+            <Card.Img 
+            onClick={() => {props.history.push(`/artists/works/detail/${creation.id}`)}}
+            variant="top" src={creation.imageURL} />
+            {/* <Card.Body>
             <Card.Title>{creation.title}</Card.Title>
             <Card.Text>Size: {creation.size}</Card.Text>
             <Card.Text>Medium: {creation.medium}</Card.Text>
@@ -43,6 +45,6 @@ export const ArtistWorksList = ({ creation, props }) => {
                  evt.preventDefault()
                  buildNewRequest(creation.title, creation.userId, creation.id)
              }}>Request</Button>
-            </Card.Body>
+            </Card.Body> */}
         </Card>
 )}

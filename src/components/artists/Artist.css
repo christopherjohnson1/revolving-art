@@ -34,3 +34,12 @@
     justify-content: center;
     margin-top: 88px;
 }
+
+.artistWorksDetailCard {
+    width: 33rem;
+}
+
+.detailContainer {
+    margin-top: 111px;
+
+}

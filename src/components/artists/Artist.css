@@ -27,6 +27,10 @@
     padding: 1em!important;
 }
 
+.artistWorksImg {
+    cursor: pointer;
+}
+
 .artistWorksHeading {
     display: flex;
     flex-wrap: wrap;

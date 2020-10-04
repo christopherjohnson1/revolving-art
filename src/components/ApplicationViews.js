@@ -18,10 +18,12 @@ export const ApplicationViews = (props) => {
     return (
         <>
         {/* Begin Landing Page */}
-        <Route exact path="/" render={(props) => {
-            return <LandingPage history={props.history} />
-        }}>
-        </Route>
+        <UserProvider>
+            <Route exact path="/" render={(props) => {
+                return <LandingPage history={props.history} />
+            }}>
+            </Route>
+        </UserProvider>
         {/* End Landing Page */}
 
         {/* Begin Creations Section */}

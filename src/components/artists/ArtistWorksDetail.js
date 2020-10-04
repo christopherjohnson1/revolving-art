@@ -45,18 +45,23 @@ export const ArtistWorksDetail = (props) => {
             <Card.Img 
             variant="top" src={creations.imageURL} />
             <Card.Body>
-            <Card.Title>{creations.title}</Card.Title>
-            <Card.Text>Size: {creations.size}</Card.Text>
-            <Card.Text>Medium: {creations.medium}</Card.Text>
-            <Card.Text>Rate: $10/ month</Card.Text>
-            <Button 
-             variant="primary"
-             onClick={evt => {
+            <Card.Title className="text-center">{creations.title}</Card.Title>
+            <Card.Text className="text-center">Size: {creations.size}</Card.Text>
+            <Card.Text className="text-center">Medium: {creations.medium}</Card.Text>
+            <Card.Text className="text-center">Rate: $10/ month</Card.Text>
+            <div className="text-center">
+                <Button className="mr-4" variant="danger" onClick={evt => {
+                evt.preventDefault() 
+                goBack()}}>Back</Button>
+                <Button 
+                variant="primary"
+                onClick={evt => {
                  evt.preventDefault()
                  buildNewRequest(creations.title, creations.userId, creations.id)
                  goBack()
-             }
-             }>Request</Button>
+                }
+                }>Request</Button>
+             </div>
             </Card.Body>
             </Card>
         </div>

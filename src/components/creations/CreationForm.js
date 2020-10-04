@@ -92,12 +92,12 @@ export const CreationForm = (props) => {
     }
 
     return (
-        <form>
+        <form className="container-sm creation-form-container">
             <fieldset>
-                <h2 className="creationForm__title">{editMode ? "Update Creation" : "New Creation"}</h2>
+                <h2 className="creationForm__title text-center mb-4">{editMode ? "Update Creation" : "New Creation"}</h2>
                 {/* if in edit mode, populate the image at top of form otherwise populate with image upload field */}
                 {editMode 
-                ? (<div className="creation__image">
+                ? (<div className="creation__image mb-3 d-flex justify-content-center">
                     <img src={creation.imageURL} alt={creation.title} style={{width: '300px'}} />
                 </div>) : (
                 <div className="form-group">
@@ -118,7 +118,7 @@ export const CreationForm = (props) => {
                 )}
             </fieldset>
             <fieldset>
-                <div className="form-group">
+                <div className="form-group ">
                     <label htmlFor="creationTitle">Creation Title: </label>
                     <input type="text" name="title" id="creationTitle" required autoFocus className="form-control" 
                     placeholder="Creation Title"
@@ -161,6 +161,7 @@ export const CreationForm = (props) => {
                     onChange={handleControlledInputChange} />
                 </div>
             </fieldset>
+            <div className="text-center">
             <Button onClick={() => props.history.push("/creations")} className="btn btn-primary ml-3" variant="danger">Cancel</Button>
             <Button type="submit" variant="success"
                 onClick={evt => {
@@ -170,6 +171,7 @@ export const CreationForm = (props) => {
                 className="btn btn-primary ml-3">
                 {editMode ? "Save Updates" : "Save New Creation"}
             </Button>
+            </div>
         </form>
     )
 }

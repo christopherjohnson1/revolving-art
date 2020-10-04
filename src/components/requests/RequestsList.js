@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { RequestContext } from "./RequestProvider"
 import { UserRequest } from "./UserRequest"
+import Button from "react-bootstrap/Button"
 import "./RequestsList.css"
 
 export const RequestsList = (props) => {
@@ -16,7 +17,12 @@ export const RequestsList = (props) => {
         <>
         <main className="requestContainer">
         <div className="requests">
-        <div className="requestHeading py-3"><h1>Requests for feature!</h1></div>
+        <div className="requestHeading py-3 text-center">
+            <h1>Requests for feature!</h1>
+            <Button
+            variant="danger"
+            onClick={() => {props.history.push("/creations")}}>Go Back</Button>
+            </div>
             {
                 userRequests.map(userRequest => {
                     return <UserRequest key={userRequest.id} props={props} userRequest={userRequest} />

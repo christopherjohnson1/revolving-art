@@ -16,16 +16,16 @@ export const Creation = ({ creation, location, props }) => {
             <Card.Text className="text-center">Location: {location.name}</Card.Text>
             <div className="text-center">
             <Button
-            className="mr-3" 
-            onClick={() => {props.history.push(`/creations/edit/${creation.id}`)}}
-             variant="primary">Edit</Button>
-            <Button
+            className="mr-3"
             onClick={
                 () => 
                     removeCreation(creation.id)
                     .then(() => props.history.go(0))
             }
              variant="danger">Delete</Button>
+            <Button
+            onClick={() => {props.history.push(`/creations/edit/${creation.id}`)}}
+             variant="primary">Edit</Button>
              </div>
             </Card.Body>
         </Card>

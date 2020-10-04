@@ -23,7 +23,9 @@ export const CreationsList = (props) => {
             <div className="creationsHeading">
                 <h1 className="text-center">My Collection</h1>
             </div>
-            <div className="creation-btn-container"><Button className="text-center" onClick={() => props.history.push("/creations/add")} variant="success">Add a new creation</Button></div>
+            <div className="creation-btn-container">
+                <Button className="text-center" onClick={() => props.history.push("/creations/add")} variant="primary">Add a new creation</Button>
+            </div>
             <div className="creations">
                 {
                     userCreations.map(creation => {

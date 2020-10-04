@@ -1,17 +1,14 @@
 import React from "react"
 import Card from "react-bootstrap/Card"
-import Button from "react-bootstrap/Button"
 
 
-export const UserRequest = ({ userRequest, props }) => {
+export const UserRequest = ({ userRequest }) => {
 
     return (
         <Card className="request" key={userRequest.id} style={{ width: '18rem' }}>
             <Card.Body>
-            <Card.Text>{userRequest.message}</Card.Text>
-            <Button
-            variant="danger">Deny</Button>
-            <Button variant="success">Approve</Button>
+            <Card.Text className="text-center">{userRequest.message}</Card.Text>
+            <Card.Text className="text-center">Call (615) 679-9013 to make arrangements!</Card.Text>
             </Card.Body>
         </Card>
     )

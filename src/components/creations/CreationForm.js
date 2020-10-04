@@ -163,7 +163,7 @@ export const CreationForm = (props) => {
             </fieldset>
             <div className="text-center">
             <Button onClick={() => props.history.push("/creations")} className="btn btn-primary ml-3" variant="danger">Cancel</Button>
-            <Button type="submit" variant="success"
+            <Button type="submit" variant="primary"
                 onClick={evt => {
                     evt.preventDefault()
                     constructNewCreation()
